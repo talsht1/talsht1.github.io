@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tal Shterenshus — Senior Test Automation Engineer</title>
+  <meta name="description" content="Senior Test Automation Engineer with 6+ years building automation frameworks, integration test infrastructure, and CI/CD pipelines." />
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent:    #0a5c78;
+      --accent-lt: #e6f4f9;
+      --text:      #1a1a2e;
+      --muted:     #5a6272;
+      --border:    #dde3ec;
+      --bg:        #ffffff;
+      --bg-alt:    #f7f9fc;
+      --radius:    8px;
+      --shadow:    0 2px 12px rgba(10,92,120,.10);
+      --max-w:     1100px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ─── Layout helpers ──────────────────────────────────────────────── */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    section:nth-child(even) {
+      background: var(--bg-alt);
+    }
+
+    .section-label {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 36px;
+      position: relative;
+      padding-bottom: 14px;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 40px; height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* ─── Navigation ──────────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .nav-brand {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--accent);
+      letter-spacing: .04em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: .875rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: color .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px; height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: .3s;
+    }
+
+    /* ─── Hero ────────────────────────────────────────────────────────── */
+    #hero {
+      padding: 100px 0 80px;
+      background: linear-gradient(135deg, #f0f8fc 0%, #ffffff 60%);
+    }
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .hero-eyebrow {
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .hero-name {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .hero-title {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 22px;
+    }
+
+    .hero-intro {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 620px;
+      margin-bottom: 36px;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 11px 24px;
+      border-radius: var(--radius);
+      font-size: .9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s, color .2s, box-shadow .2s;
+      text-decoration: none !important;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border: 2px solid var(--accent);
+    }
+
+    .btn-primary:hover {
+      background: #074a62;
+      border-color: #074a62;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+    }
+
+    .btn-outline:hover {
+      background: var(--accent-lt);
+      box-shadow: var(--shadow);
+    }
+
+    /* ─── About ───────────────────────────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .about-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 16px;
+      background: var(--bg-alt);
+      border-radius: var(--radius);
+      border-left: 3px solid var(--accent);
+    }
+
+    .highlight-item .hi-icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .highlight-item strong {
+      display: block;
+      font-size: .875rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .highlight-item span {
+      font-size: .85rem;
+      color: var(--muted);
+    }
+
+    /* ─── Skills ──────────────────────────────────────────────────────── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .skill-card h4 {
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .tag {
+      background: var(--accent-lt);
+      color: var(--accent);
+      font-size: .78rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 30px;
+      white-space: nowrap;
+    }
+
+    /* ─── Strengths ───────────────────────────────────────────────────── */
+    .strengths-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .strength-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: var(--shadow);
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .strength-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(10,92,120,.14);
+    }
+
+    .strength-icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
+    }
+
+    .strength-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .strength-card p {
+      font-size: .875rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* ─── Experience ──────────────────────────────────────────────────── */
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .exp-item {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .exp-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .exp-meta h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .exp-meta .exp-company {
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 2px;
+    }
+
+    .exp-period {
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--muted);
+      background: var(--accent-lt);
+      padding: 3px 12px;
+      border-radius: 30px;
+      white-space: nowrap;
+      align-self: flex-start;
+    }
+
+    .exp-item ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .exp-item ul li {
+      padding-left: 18px;
+      position: relative;
+      font-size: .9rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .exp-item ul li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: .75rem;
+      top: 4px;
+    }
+
+    /* ─── Education ───────────────────────────────────────────────────── */
+    .edu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .edu-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 20px 24px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .edu-dot {
+      width: 10px; height: 10px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    .edu-info h4 {
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .edu-info .edu-school {
+      font-size: .875rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin: 2px 0;
+    }
+
+    .edu-info .edu-year {
+      font-size: .82rem;
+      color: var(--muted);
+    }
+
+    /* ─── Contact ─────────────────────────────────────────────────────── */
+    #contact {
+      background: var(--bg-alt);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .contact-text p {
+      color: var(--muted);
+      margin-bottom: 28px;
+      font-size: 1.0rem;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .contact-icon {
+      width: 40px; height: 40px;
+      background: var(--accent-lt);
+      color: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-row .cr-label {
+      font-size: .78rem;
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .contact-row .cr-value {
+      font-size: .9rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .contact-row .cr-value a {
+      color: var(--text);
+    }
+
+    .contact-row .cr-value a:hover {
+      color: var(--accent);
+    }
+
+    .contact-cta {
+      padding: 30px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-cta h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .contact-cta p {
+      font-size: .9rem;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    /* ─── Footer ──────────────────────────────────────────────────────── */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,.7);
+      padding: 36px 24px;
+      text-align: center;
+    }
+
+    footer .footer-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    footer .footer-tagline {
+      font-size: .875rem;
+      color: rgba(255,255,255,.65);
+      margin-bottom: 14px;
+    }
+
+    footer .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    footer .footer-links a {
+      color: rgba(255,255,255,.6);
+      font-size: .82rem;
+      transition: color .2s;
+    }
+
+    footer .footer-links a:hover {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    footer .footer-copy {
+      font-size: .78rem;
+      color: rgba(255,255,255,.4);
+    }
+
+    /* ─── Responsive ──────────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      section { padding: 60px 0; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px; left: 0; right: 0;
+        background: #fff;
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 0;
+      }
+
+      .nav-links.open { display: flex; }
+
+      .nav-links a {
+        display: block;
+        padding: 12px 24px;
+        font-size: .95rem;
+      }
+
+      .nav-toggle { display: flex; }
+
+      .about-grid,
+      .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+
+      #hero { padding: 72px 0 60px; }
+
+      .exp-header { flex-direction: column; }
+
+      .section-title { font-size: 1.55rem; }
+    }
+
+    @media (max-width: 480px) {
+      .btn-group { flex-direction: column; align-items: flex-start; }
+      .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── Navigation ──────────────────────────────────────────────────────── -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <span class="nav-brand">Tal Shterenshus</span>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#strengths">Strengths</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ─── Hero ─────────────────────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Available for Senior Automation &amp; DevOps-Oriented Roles</p>
+      <h1 class="hero-name">Tal Shterenshus</h1>
+      <p class="hero-title">Senior Test Automation Engineer&nbsp;|&nbsp;SDET&nbsp;|&nbsp;CI/CD &amp; Test Infrastructure</p>
+      <p class="hero-intro">
+        Senior Test Automation Engineer with 6+ years of experience building automation frameworks,
+        integration test infrastructure, and CI/CD pipelines for complex production systems.
+      </p>
+      <div class="btn-group">
+        <a href="Tal_Shterenshus_CV.pdf" download class="btn btn-primary">
+          &#8595;&nbsp;Download CV
+        </a>
+        <a href="https://www.linkedin.com/in/tal-shterenshus" target="_blank" rel="noopener" class="btn btn-outline">
+          LinkedIn
+        </a>
+        <a href="#contact" class="btn btn-outline">
+          Contact Me
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── About ────────────────────────────────────────────────────────────── -->
+<section id="about">
+  <div class="container">
+    <p class="section-label">Background</p>
+    <h2 class="section-title">About Me</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm a Senior Test Automation Engineer and SDET with a deep focus on building
+          scalable, maintainable test automation systems that integrate tightly with CI/CD
+          pipelines and engineering workflows. I've worked across frontend, backend, API,
+          and distributed-system testing in complex, high-velocity environments.
+        </p>
+        <p>
+          My core stack includes <strong>Python, TypeScript, and Java</strong>, paired with
+          frameworks like <strong>Playwright, Selenium, and Pytest</strong>. I design and own
+          automation infrastructure end-to-end — from framework architecture and test data
+          management to Jenkins and GitHub Actions pipelines, Docker containers, and
+          Kubernetes deployments.
+        </p>
+        <p>
+          I'm currently moving toward DevOps-adjacent roles, with hands-on training in
+          infrastructure tooling (Terraform, Helm, Kubernetes) and a focus on
+          release reliability, system testability, and engineering quality.
+        </p>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight-item">
+          <span class="hi-icon">🐍</span>
+          <div>
+            <strong>Languages</strong>
+            <span>Python · TypeScript · Java</span>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <span class="hi-icon">🎭</span>
+          <div>
+            <strong>Test Frameworks</strong>
+            <span>Playwright · Selenium · Pytest · JUnit</span>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <span class="hi-icon">⚙️</span>
+          <div>
+            <strong>CI/CD &amp; Infrastructure</strong>
+            <span>Jenkins · GitHub Actions · Docker · Kubernetes · Terraform</span>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <span class="hi-icon">🔗</span>
+          <div>
+            <strong>Testing Scope</strong>
+            <span>UI · API · Backend · Integration · Distributed Systems</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Skills ────────────────────────────────────────────────────────────── -->
+<section id="skills">
+  <div class="container">
+    <p class="section-label">Technical Expertise</p>
+    <h2 class="section-title">Core Skills</h2>
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <h4>Languages</h4>
+        <div class="tag-list">
+          <span class="tag">Python</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Java</span>
+          <span class="tag">Bash</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h4>Test Automation</h4>
+        <div class="tag-list">
+          <span class="tag">Playwright</span>
+          <span class="tag">Selenium</span>
+          <span class="tag">Pytest</span>
+          <span class="tag">JUnit</span>
+          <span class="tag">REST Assured</span>
+          <span class="tag">Allure</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h4>CI/CD &amp; DevOps</h4>
+        <div class="tag-list">
+          <span class="tag">GitHub Actions</span>
+          <span class="tag">Jenkins</span>
+          <span class="tag">GitLab CI</span>
+          <span class="tag">Groovy</span>
+          <span class="tag">YAML Pipelines</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h4>Containers &amp; Infrastructure</h4>
+        <div class="tag-list">
+          <span class="tag">Docker</span>
+          <span class="tag">Kubernetes</span>
+          <span class="tag">Helm</span>
+          <span class="tag">Terraform</span>
+          <span class="tag">Ansible</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h4>Cloud &amp; Artifacts</h4>
+        <div class="tag-list">
+          <span class="tag">AWS</span>
+          <span class="tag">GCP</span>
+          <span class="tag">Artifactory</span>
+          <span class="tag">Nexus</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h4>Messaging &amp; Distributed Systems</h4>
+        <div class="tag-list">
+          <span class="tag">Kafka</span>
+          <span class="tag">RabbitMQ</span>
+          <span class="tag">gRPC</span>
+          <span class="tag">Distributed Tracing</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h4>Databases</h4>
+        <div class="tag-list">
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">Redis</span>
+          <span class="tag">MongoDB</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h4>APIs &amp; Networking</h4>
+        <div class="tag-list">
+          <span class="tag">REST</span>
+          <span class="tag">GraphQL</span>
+          <span class="tag">WebSockets</span>
+          <span class="tag">Postman</span>
+          <span class="tag">Swagger</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h4>Observability &amp; Reporting</h4>
+        <div class="tag-list">
+          <span class="tag">Grafana</span>
+          <span class="tag">Prometheus</span>
+          <span class="tag">ELK Stack</span>
+          <span class="tag">Allure Reports</span>
+          <span class="tag">Jira</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── Selected Strengths ────────────────────────────────────────────────── -->
+<section id="strengths">
+  <div class="container">
+    <p class="section-label">What I Bring</p>
+    <h2 class="section-title">Selected Strengths</h2>
+    <div class="strengths-grid">
+
+      <div class="strength-card">
+        <div class="strength-icon">🏗️</div>
+        <h3>Automation Frameworks</h3>
+        <p>Designs and owns end-to-end automation frameworks — from architecture and patterns to CI integration — built for scale and long-term maintainability.</p>
+      </div>
+
+      <div class="strength-card">
+        <div class="strength-icon">🚀</div>
+        <h3>CI/CD &amp; Release Validation</h3>
+        <p>Integrates automated test gates into CI/CD pipelines (GitHub Actions, Jenkins) to improve release confidence, feedback speed, and deployment reliability.</p>
+      </div>
+
+      <div class="strength-card">
+        <div class="strength-icon">🔀</div>
+        <h3>Distributed System Testing</h3>
+        <p>Builds simulators and test harnesses for distributed, event-driven architectures — enabling reliable, independent validation of complex backend and integration behaviors.</p>
+      </div>
+
+      <div class="strength-card">
+        <div class="strength-icon">🛠️</div>
+        <h3>DevOps-Oriented Mindset</h3>
+        <p>Bridges QA and platform engineering — comfortable with Docker, Kubernetes, Terraform, and cloud tooling, with a focus on testability and system quality.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── Experience ────────────────────────────────────────────────────────── -->
+<section id="experience">
+  <div class="container">
+    <p class="section-label">Work History</p>
+    <h2 class="section-title">Experience</h2>
+    <div class="exp-list">
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-meta">
+            <h3>Senior Automation Engineer</h3>
+            <div class="exp-company">Redis</div>
+          </div>
+          <span class="exp-period">2024 – Present</span>
+        </div>
+        <ul>
+          <li>Built and maintained automation frameworks for frontend, backend, and integration testing using TypeScript and Java.</li>
+          <li>Developed simulators and services for reliable testing of distributed systems.</li>
+          <li>Integrated automated validation into GitHub Actions CI/CD pipelines to improve release confidence and feedback speed.</li>
+          <li>Contributed to system design, code reviews, and performance improvements with a focus on stability and testability.</li>
+          <li>Worked with developers and cross-functional teams to improve integration coverage and reliability.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-meta">
+            <h3>Senior Test Automation Engineer</h3>
+            <div class="exp-company">Rafael Advanced Defense Systems</div>
+          </div>
+          <span class="exp-period">2020 – 2024</span>
+        </div>
+        <ul>
+          <li>Built Python automation frameworks and internal tools to improve testing efficiency across multiple projects.</li>
+          <li>Developed simulators and utilities for independent QA validation in complex system environments.</li>
+          <li>Built and maintained Jenkins CI/CD pipelines for automated and nightly test execution.</li>
+          <li>Created test analytics and Jira reporting tools to improve visibility and traceability.</li>
+          <li>Collaborated on system integrations and field testing to improve end-to-end stability.</li>
+          <li>Mentored junior engineers and conducted code reviews to raise engineering quality standards.</li>
+          <li>Built and maintained Dockerfiles and Helm charts for test-service deployment.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── Education ─────────────────────────────────────────────────────────── -->
+<section id="education">
+  <div class="container">
+    <p class="section-label">Academic &amp; Training Background</p>
+    <h2 class="section-title">Education</h2>
+    <div class="edu-list">
+
+      <div class="edu-item">
+        <div class="edu-dot"></div>
+        <div class="edu-info">
+          <h4>DevOps Course</h4>
+          <div class="edu-school">Develeap</div>
+          <div class="edu-year">2025</div>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-dot"></div>
+        <div class="edu-info">
+          <h4>Software Development Training</h4>
+          <div class="edu-school">Infinity Labs</div>
+          <div class="edu-year">2019 – 2020</div>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-dot"></div>
+        <div class="edu-info">
+          <h4>B.Sc. in Biotechnology and Food Engineering</h4>
+          <div class="edu-school">Technion – Israel Institute of Technology</div>
+          <div class="edu-year">2008 – 2012</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── Contact ───────────────────────────────────────────────────────────── -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label">Get In Touch</p>
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-text">
+          <p>
+            Open to senior automation engineering and DevOps-adjacent opportunities.
+            Feel free to reach out via email or LinkedIn.
+          </p>
+        </div>
+        <div class="contact-details">
+
+          <div class="contact-row">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="cr-label">Location</div>
+              <div class="cr-value">Petah Tikva, Israel</div>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <div class="cr-label">Email</div>
+              <div class="cr-value">
+                <a href="mailto:tal.shterenshus@gmail.com">tal.shterenshus@gmail.com</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-icon">📱</div>
+            <div>
+              <div class="cr-label">Phone</div>
+              <div class="cr-value">
+                <a href="tel:+972000000000">Available on request</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-icon">💼</div>
+            <div>
+              <div class="cr-label">LinkedIn</div>
+              <div class="cr-value">
+                <a href="https://www.linkedin.com/in/tal-shterenshus" target="_blank" rel="noopener">
+                  linkedin.com/in/tal-shterenshus
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="contact-cta">
+        <h3>Let's connect</h3>
+        <p>
+          I'm available for senior automation and DevOps-oriented opportunities.
+          Whether it's a full-time role or a technical conversation, I'm happy to talk.
+        </p>
+        <div class="btn-group">
+          <a href="mailto:tal.shterenshus@gmail.com" class="btn btn-primary">
+            Send Email
+          </a>
+          <a href="https://www.linkedin.com/in/tal-shterenshus" target="_blank" rel="noopener" class="btn btn-outline">
+            LinkedIn Profile
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Footer ────────────────────────────────────────────────────────────── -->
+<footer>
+  <p class="footer-name">Tal Shterenshus</p>
+  <p class="footer-tagline">Available for senior automation and DevOps-oriented opportunities</p>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+    <a href="https://www.linkedin.com/in/tal-shterenshus" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+  <p class="footer-copy">&copy; 2025 Tal Shterenshus · Senior Test Automation Engineer</p>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const toggle = document.getElementById('navToggle');
+  const links  = document.getElementById('navLinks');
+
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+
+  // Close nav on link click (mobile)
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', false);
+    });
+  });
+</script>
+</body>
+</html>
