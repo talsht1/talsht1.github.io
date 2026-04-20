@@ -307,6 +307,14 @@ nav {
   border: 1px solid #c8daf0;
 }
 
+.skill-note {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-top: 10px;
+  font-style: italic;
+}
+
 /* ===== Experience ===== */
 .timeline {
   display: flex;
